@@ -1,13 +1,14 @@
-import ast
+import ast,os
 class ResultadosClass:
     def __init__(self, url, apariciones):
         self.url = url
         self.apariciones = apariciones
 
 def buscar_palabra(busqueda):
-    archivo_indice =r"C:\Users\jesus\Desktop\DJango\mini_google\browser\resultado.txt"
-
-    with open(archivo_indice, 'r', encoding='utf-8') as archivo:
+    current_directory = os.path.dirname(__file__)
+    indice_path = os.path.join(current_directory,'resultado.txt')
+    
+    with open(indice_path, 'r', encoding='utf-8') as archivo:
         lineas = archivo.readlines()
 
     for linea in lineas:

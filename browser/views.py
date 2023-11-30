@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.template import Template, Context
 from browser.functions import buscar_palabra, convertir_cadena_a_objetos
-<<<<<<< HEAD
 import os
 
 def principal(request): # Vista Principal

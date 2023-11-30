@@ -33,6 +33,3 @@ def resultados(request):
     resultados = plt_resultados.render(ctx_resultados)
 
     return HttpResponse(resultados)
-
-    except FileNotFoundError:
-        return HttpResponse("El archivo resultados.html no se encuentra.")

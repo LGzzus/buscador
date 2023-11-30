@@ -3,7 +3,7 @@ from django.template import Template, Context
 from browser.functions import buscar_palabra, convertir_cadena_a_objetos
 
 def principal(request): # Vista Principal
-    doc_palntilla_principal = open(r"C:\Users\jesus\Desktop\DJango\mini_google\browser\plantillas\principal.html")
+    doc_palntilla_principal = open(r"https://github.com/LGzzus/buscador/blob/master/browser/plantillas/principal.html")
     plt_principal = Template(doc_palntilla_principal.read())
     doc_palntilla_principal.close()
     ctx_principal = Context()
@@ -22,7 +22,7 @@ def resultados(request):
     lista_resultados = convertir_cadena_a_objetos(resultado)
     
     # Resto del código para cargar y renderizar tu plantilla
-    doc_plantilla_resultados = open(r"C:\Users\jesus\Desktop\mi_buscador\buscador\plantillas\resultados.html")
+    doc_plantilla_resultados = open(r"https://github.com/LGzzus/buscador/blob/master/browser/plantillas/resultados.html")
     plt_resultados = Template(doc_plantilla_resultados.read())
     doc_plantilla_resultados.close()
     ctx_resultados = Context({"lista_resultado": lista_resultados, "resultado": busqueda})

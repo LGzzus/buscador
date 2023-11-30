@@ -1,5 +1,4 @@
-import ast
-import os
+import ast,os
 class ResultadosClass:
     def __init__(self, url, apariciones):
         self.url = url
@@ -7,23 +6,21 @@ class ResultadosClass:
 
 def buscar_palabra(busqueda):
     current_directory = os.path.dirname(__file__)
-    archivo_indice = os.path.join(current_directory, 'resultado.txt')
-    try:
-        with open(archivo_indice, 'r', encoding='utf-8') as archivo:
-            lineas = archivo.readlines()
-        for linea in lineas:
-            if busqueda + ':' in linea:
-                informacion = linea.replace(busqueda + ': ', '').strip()
-                try:
-                    informacion = ast.literal_eval(informacion)
-                    return informacion
-                except (ValueError, SyntaxError):
-                    return f'Error al procesar la información para la palabra "{busqueda}".'
+    indice_path = os.path.join(current_directory,'resultado.txt')
+    
+    with open(indice_path, 'r', encoding='utf-8') as archivo:
+        lineas = archivo.readlines()
 
-        return f'La palabra "{busqueda}" no se encuentra en el índice invertido.'
+    for linea in lineas:
+        if busqueda + ':' in linea:
+            informacion = linea.replace(busqueda + ': ', '').strip()
+            try:
+                informacion = ast.literal_eval(informacion)
+                return informacion
+            except (ValueError, SyntaxError):
+                return f'Error al procesar la información para la palabra "{busqueda}".'
 
-    except FileNotFoundError:
-        return f'El archivo {archivo_indice} no se encuentra.'
+    return f'La palabra "{busqueda}" no se encuentra en el índice invertido.'
         
 def convertir_cadena_a_objetos(cadena):
     cadena_de_texto = str(cadena)

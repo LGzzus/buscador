@@ -1,14 +1,36 @@
 from django.http import HttpResponse
 from django.template import Template, Context
 from browser.functions import buscar_palabra, convertir_cadena_a_objetos
+import os 
 
-def principal(request): # Vista Principal
-    doc_palntilla_principal = open(r"./plantillas/principal.html")
-    plt_principal = Template(doc_palntilla_principal.read())
-    doc_palntilla_principal.close()
-    ctx_principal = Context()
-    barraBusqueda = plt_principal.render(ctx_principal)
-    return HttpResponse(barraBusqueda)
+def principal(request):
+    # Obtén el directorio del script actual
+    current_directory = os.path.dirname(__file__)
+
+    # Construye la ruta completa al archivo principal.html
+    template_path = os.path.join(current_directory, 'plantillas', 'principal.html')
+
+    try:
+        # Intenta abrir el archivo
+        with open(template_path, 'r') as template_file:
+            # Lee el contenido del archivo
+            content = template_file.read()
+
+        # Crea un objeto de la clase Template
+        plt_principal = Template(content)
+
+        # Crea un objeto de la clase Context (puedes pasar datos si es necesario)
+        ctx_principal = Context()
+
+        # Renderiza la plantilla con el contexto
+        barraBusqueda = plt_principal.render(ctx_principal)
+
+        # Devuelve la respuesta HTTP con el contenido renderizado
+        return HttpResponse(barraBusqueda)
+
+    except FileNotFoundError:
+        # Maneja el caso donde el archivo no se encuentra
+        return HttpResponse("El archivo principal.html no se encuentra.")
 
 def resultados(request):
     busqueda = request.GET.get('busqueda', '')

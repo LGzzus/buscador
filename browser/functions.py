@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import ast,os
+=======
+import ast
+import os
+>>>>>>> 8651e33dd15e1de2e2426464a9a8eca5a683dd68
 class ResultadosClass:
     def __init__(self, url, apariciones):
         self.url = url
@@ -22,6 +27,9 @@ def buscar_palabra(busqueda):
 
     return f'La palabra "{busqueda}" no se encuentra en el índice invertido.'
 
+    except FileNotFoundError:
+        return f'El archivo {archivo_indice} no se encuentra.'
+        
 def convertir_cadena_a_objetos(cadena):
     cadena_de_texto = str(cadena)
     print(f'Contenido de cadena_de_texto: {cadena}')

@@ -1,4 +1,5 @@
 import ast
+import os
 class ResultadosClass:
     def __init__(self, url, apariciones):
         self.url = url

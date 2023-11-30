@@ -3,7 +3,7 @@ from django.template import Template, Context
 from browser.functions import buscar_palabra, convertir_cadena_a_objetos
 
 def principal(request): # Vista Principal
-    doc_palntilla_principal = open(r"https://github.com/LGzzus/buscador/blob/master/browser/plantillas/principal.html")
+    doc_palntilla_principal = open(r"./plantillas/principal.html")
     plt_principal = Template(doc_palntilla_principal.read())
     doc_palntilla_principal.close()
     ctx_principal = Context()

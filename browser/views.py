@@ -25,7 +25,7 @@ def resultados(request):
     doc_plantilla_resultados = open(r"C:\Users\jesus\Desktop\mi_buscador\buscador\plantillas\resultados.html")
     plt_resultados = Template(doc_plantilla_resultados.read())
     doc_plantilla_resultados.close()
-    ctx_resultados = Context({"lista_resultados": lista_resultados, "resultado": busqueda})
+    ctx_resultados = Context({"lista_resultado": lista_resultados, "resultado": busqueda})
     resultados = plt_resultados.render(ctx_resultados)
 
     return HttpResponse(resultados)

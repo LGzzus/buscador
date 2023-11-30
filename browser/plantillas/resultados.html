@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Agrega el enlace al CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #F6F9F6;
+        }
+    </style>
+</head>
+<body>
+      
+    <div class="container mt-4">
+
+        <form method="get" action="{% url 'resultados' %}" class="form-horizontal" style="padding: 10px;">
+            <div class="input-group">
+              <input type='text' class='form-control search-input' name='busqueda' value="{{ resultado }}" placeholder="Ingrese su búsqueda" style="padding: 10px;">
+              <div class="input-group-append">
+                <button class='btn btn-primary search-button' type='submit'>Buscar</button>
+              </div>
+            </div>
+        </form>
+
+        <br>
+
+        {% for resultado in lista_resultados %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Resultado</h5>
+                    <p class="card-text">URL: {{ resultado.url }}</p>
+                    <p class="card-text">Apariciones: {{ resultado.apariciones }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Agrega el enlace al JavaScript de Bootstrap y a jQuery si es necesario -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

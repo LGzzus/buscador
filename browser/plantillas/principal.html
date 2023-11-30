@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.solofondos.com/wp-content/uploads/2015/04/Fondos-de-paisajes.jpg'); /* Reemplaza 'tu_imagen.jpg' con la ruta de tu imagen */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+            background-position: center; /* Centra la imagen en el fondo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .search-container {
+            text-align: center;
+            width: 50%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px; /* Ajustado el radio para que sea más parecido a Google */
+            margin-top: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Añadida una sombra */
+        }
+
+        .search-input {
+            width: 700px;
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 24px; /* Ajustado el radio para que sea más parecido a Google */
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none; /* Elimina el borde azul del foco en algunos navegadores */
+        }
+
+        .search-button {
+            padding: 10px;
+            background-color: #4285f4; /* Color característico de Google */
+            color: #fff;
+            border: none;
+            border-radius: 24px; /* Ajustado el radio para que sea más parecido a Google */
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" action="{% url 'resultados' %}">
+            <input type='text' class='search-input' name='busqueda' placeholder='  Buscar...'>
+            <button class='search-button' type='submit'>Buscar</button>
+    </form>
+</body>
+</html>

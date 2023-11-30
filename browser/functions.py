@@ -5,7 +5,7 @@ class ResultadosClass:
         self.apariciones = apariciones
 
 def buscar_palabra(busqueda):
-    archivo_indice =r"C:\Users\jesus\Desktop\DJango\mini_google\browser\resultado.txt"
+    archivo_indice =r"https://github.com/LGzzus/buscador/blob/sandbox/browser/resultado.txt"
 
     with open(archivo_indice, 'r', encoding='utf-8') as archivo:
         lineas = archivo.readlines()
